@@ -13,12 +13,12 @@ A partir de datos sobre la discusión pública alrededor de la pandema de COVID-
 
 Se trabajará sobre un dataset de tuits sobre COVID, recolectado durante los primeros meses de la pandemia COVID-19, usando la API de Twitter.
 
-periodo: Abril a Junio 2020
-idioma: español
-términos de búsqueda: covid, covid19
-cantidad de tuits: 24,6M
-cantidad de usuarios: 3,6M
-contiene información de retuits y respuestas
+- periodo: Abril a Junio 2020
+- idioma: español
+- términos de búsqueda: covid, covid19
+- cantidad de tuits: 24,6M
+- cantidad de usuarios: 3,6M
+- contiene información de retuits y respuestas
 
 ## Objetivos preliminares
 
@@ -42,7 +42,7 @@ In Proceedings of the 10th International Workshop on Semantic Evaluation (SemEva
 
 [2] Furman, D. A., Marro, S., Cardellino, C., Popa, D. N., & Alonso Alemany, L. (2021). 
 [You can simply rely on communities for a robust characterization of stances.](https://journals.flvc.org/FLAIRS/article/view/128515/130054)
-The International FLAIRS Conference Proceedings, 34. https://doi.org/10.32473/flairs.v34i1.128515
+The International FLAIRS Conference Proceedings, 34.
 
 [3] Schmidt, Mariano (2021).
 [Explotando características contextuales para la detección de posturas en Twitter en el marco de la vacunación del COVID-19 en Argentina.](https://docs.google.com/document/d/10kzaOA857nJynijoRkFd9J-OuBVBsMphwoVQr7EiRs8/edit?usp=sharing)
@@ -51,5 +51,6 @@ Trabajo Especial de Licenciatura en Ciencias de la Computación, FaMAF, UNC.
 [4] David M. Blei, Andrew Y. Ng, Michael I. Jordan; 3(Jan):993-1022, 2003.
 [Latent Dirichlet Allocation](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf)
 
-[5] Wayne Xin Zhao, Jing Jiang et al., ECIR'11.
+[5] Wayne Xin Zhao, Jing Jiang et al.,
 [Comparing Twitter and traditional media using topic models.](http://link.springer.com/chapter/10.1007%2F978-3-642-20161-5_34)
+ ECIR'11.
