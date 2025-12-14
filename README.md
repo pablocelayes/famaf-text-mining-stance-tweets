@@ -34,6 +34,9 @@ Nos proponemos investigar y aplicar técnicas para detectar temáticas y dentro 
 
 4. Desarrollo, implementación y evaluación de técnicas para caracterizar interacciones entre tuits (apoyo, ataque, neutro). Se estudiará el trabajo [3] y se adaptarán las técnicas allí empleadas.
 
+## Resultados
+ ver [informe](https://github.com/pablocelayes/famaf-text-mining-stance-tweets/blob/main/Informe.md).
+
 ## Referencias
 
 [1] Saif Mohammad, Svetlana Kiritchenko, Parinaz Sobhani, Xiaodan Zhu, and Colin Cherry. (2016).
