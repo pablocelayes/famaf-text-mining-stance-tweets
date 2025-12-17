@@ -32,6 +32,7 @@ Aplicamos el modelo entrenado al conjunto completo de tuits del '2020-04-16'.
 ### 2. Temas polarizados
 
 [03.4 - topic model analyze topics.ipynb](https://github.com/pablocelayes/famaf-text-mining-stance-tweets/blob/main/03.4%20-%20topic%20model%20analyze%20topics.ipynb)
+
 Exploramos los temas descubiertos:
 - Título del tema (generado por BERTopic)
 - Tuits con mayor probabilidad respecto del tema.
@@ -70,7 +71,41 @@ https://chatgpt.com/share/693ed840-e380-8013-b8ce-b9afd55645ac
 
 Dada la alta calidad de las etiquetas generadas por GPT-5.2, se decidió entrenar un modelo de clasificación automático para predecir las etiquetas de nuevas interacciones. Un modelo de este tipo permitiría escalar el análisis a un conjunto mayor de interacciones, sin depender de la generación de etiquetas por LLMs, que es lenta y costosa (el etiquetado de 970 interacciones llevó más de una hora y costó alrededor de 6 dólares).
 
-[05 - entrenamiento modelo clasificacion interacciones.ipynb](
+[05 - clasificación de interacciones.ipynb](https://github.com/pablocelayes/famaf-text-mining-stance-tweets/blob/main/05%20-%20clasificaci%C3%B3n%20de%20interacciones.ipynb)
+
+Se entrenó un modelo de _boosted trees_ sobre un conjunto de características de los siguientes tipos (más detalles en notebook):
+- Sociales
+- Estructurales
+- Textuales
+- Conversacionales
+- Afectivas
+- 
+La selección de características se inspiró en el [trabajo](https://docs.google.com/document/d/10kzaOA857nJynijoRkFd9J-OuBVBsMphwoVQr7EiRs8/edit?usp=sharing) de Mariano Schmidt, agregando algunas características adicionales como las sociales (extraídas de los metadatos de cada tuit) o conversacionales basadas en similitud entre los _embeddings_ de los tuits.
+
+El modelo se entrenó en un 80% de los datos y se evaluó en el 20% restante.
+Se obtuvo una precisión del 63.4% y las siguientes medidas f1 por clase:
+- apoyo: 0.71
+- ataque: 0.62
+- neutral: 0.18
+
+Las relaciones neutrales son las más difíciles de predecir, probablemente porque son las menos frecuentes, y quizás también debido a que no tienen un vocabulario o un tono tan definido como las respuesas de ataque o apoyo. En la _notebook_ puede verse también la matriz de confusión para la clasificación sobre el conjunto de evaluación.
+
+### 4. Conclusiones y trabajo futuro
+
+Algunas conclusiones:
+
+- Las nuevas técnicas de _topic modeling_ como BERTopic son capaces de producir temas coherentes y útiles para análisis posteriores, incluso en conjuntos de datos muy grandes, sin demasiado ajuste manual.
+
+- Los _LLMs_ de última generación como GPT-5.2 son herramientas muy poderosas para tareas de etiquetado, logrando niveles de precisión y explicabilidad a la altura de un humano. Su costo sigue siendo prohibitivo para tareas de gran escala, pero son de mucha utilidad para agilizar el desarrollo de otros modelos y obtener datos etiquetados rápidamente.
+
+
+Ideas que podrían desarrollarse o mejorarse a futuro:
+
+- Es difícil definir o detectar posicionamiento respecto de temas sin estudiar primero las interacciones. En futuros análisis, podría comenzarse con el análisis de tipos de interacciones y luego usar estoy para detectar temas polémicos.
+- El modelo de clasificación empleado es bastante básico, podrían mejorarse con ajuste de hiperparámetros, y también explorar modelos más complejos, por ejemplo, redes neuronales con algunos módulos de _self-attention_.
+- A su vez, las _features_ empleadas por el modelo podrían enriquecerse de varias maneras, por ejemplo, construyendo un grafo social entre los tuits o usuarios y calculando características basades en centralidad, conectividad entre nodos o detección de comunidades.
+- El recorte de datos efectuado (primero una semana, luego sólo un día) a fines de hacer escalable el proceso de _topic modeling_ resultó muy limitante para la selección de interacciones. Podrían explorarse optimizaciones (e.g.: paralelización, temas dinámicos) para poder extender el análisis a todo el _dataset_ y enriquecer el análisis de interacciones.
+
 
 
 
