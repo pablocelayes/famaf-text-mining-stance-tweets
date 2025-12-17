@@ -88,7 +88,12 @@ Se obtuvo una precisión del 63.4% y las siguientes medidas f1 por clase:
 - ataque: 0.62
 - neutral: 0.18
 
-Las relaciones neutrales son las más difíciles de predecir, probablemente porque son las menos frecuentes, y quizás también debido a que no tienen un vocabulario o un tono tan definido como las respuesas de ataque o apoyo. En la _notebook_ puede verse también la matriz de confusión para la clasificación sobre el conjunto de evaluación.
+Las relaciones neutrales son las más difíciles de predecir, probablemente porque son las menos frecuentes, y quizás también debido a que no tienen un vocabulario o un tono tan definido como las respuestas de ataque o apoyo. En la _notebook_ puede verse también la matriz de confusión para la clasificación sobre el conjunto de evaluación.
+
+Puede verse también en las notebooks un análisis SHAP de importancia de _features_ para cada clase.
+En general los embeddings de original y respuesta tienen mucha importancia, junto con algunas características
+estructurales, conversacionales y afectivas. En ninguna de las tres clases se encuentran características sociales
+(retweets, likes, etc.) entre las 50 más importantes.
 
 ### 4. Conclusiones y trabajo futuro
 
@@ -105,7 +110,3 @@ Ideas que podrían desarrollarse o mejorarse a futuro:
 - El modelo de clasificación empleado es bastante básico, podrían mejorarse con ajuste de hiperparámetros, y también explorar modelos más complejos, por ejemplo, redes neuronales con algunos módulos de _self-attention_.
 - A su vez, las _features_ empleadas por el modelo podrían enriquecerse de varias maneras, por ejemplo, construyendo un grafo social entre los tuits o usuarios y calculando características basades en centralidad, conectividad entre nodos o detección de comunidades.
 - El recorte de datos efectuado (primero una semana, luego sólo un día) a fines de hacer escalable el proceso de _topic modeling_ resultó muy limitante para la selección de interacciones. Podrían explorarse optimizaciones (e.g.: paralelización, temas dinámicos) para poder extender el análisis a todo el _dataset_ y enriquecer el análisis de interacciones.
-
-
-
-
