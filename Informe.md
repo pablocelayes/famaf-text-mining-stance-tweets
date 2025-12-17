@@ -79,7 +79,7 @@ Se entrenó un modelo de _boosted trees_ sobre un conjunto de características d
 - Textuales
 - Conversacionales
 - Afectivas
-- 
+
 La selección de características se inspiró en el [trabajo](https://docs.google.com/document/d/10kzaOA857nJynijoRkFd9J-OuBVBsMphwoVQr7EiRs8/edit?usp=sharing) de Mariano Schmidt, agregando algunas características adicionales como las sociales (extraídas de los metadatos de cada tuit) o conversacionales basadas en similitud entre los _embeddings_ de los tuits.
 
 El modelo se entrenó en un 80% de los datos y se evaluó en el 20% restante.
@@ -106,7 +106,7 @@ Algunas conclusiones:
 
 Ideas que podrían desarrollarse o mejorarse a futuro:
 
-- Es difícil definir o detectar posicionamiento respecto de temas sin estudiar primero las interacciones. En futuros análisis, podría comenzarse con el análisis de tipos de interacciones y luego usar estoy para detectar temas polémicos.
+- Es difícil definir o detectar posicionamiento respecto de temas sin estudiar primero las interacciones. En futuros análisis, podría comenzarse con el análisis de tipos de interacciones y luego usar estos para detectar temas polémicos.
 - El modelo de clasificación empleado es bastante básico, podrían mejorarse con ajuste de hiperparámetros, y también explorar modelos más complejos, por ejemplo, redes neuronales con algunos módulos de _self-attention_.
-- A su vez, las _features_ empleadas por el modelo podrían enriquecerse de varias maneras, por ejemplo, construyendo un grafo social entre los tuits o usuarios y calculando características basades en centralidad, conectividad entre nodos o detección de comunidades.
+- A su vez, las _features_ empleadas por el modelo podrían enriquecerse de varias maneras, por ejemplo, construyendo un grafo social entre los tuits o usuarios y calculando características basadas en centralidad, conectividad entre nodos o detección de comunidades.
 - El recorte de datos efectuado (primero una semana, luego sólo un día) a fines de hacer escalable el proceso de _topic modeling_ resultó muy limitante para la selección de interacciones. Podrían explorarse optimizaciones (e.g.: paralelización, temas dinámicos) para poder extender el análisis a todo el _dataset_ y enriquecer el análisis de interacciones.
